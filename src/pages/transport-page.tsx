@@ -56,7 +56,7 @@ export function TransportPage(): React.JSX.Element {
               </div>
               <div className="transport-congestion-wrap">
                 <div
-                  className="util-style-50"
+                  className="congestion-dynamic-color"
                   style={{ color: option.congestion > 70 ? 'var(--accent-amber)' : 'var(--accent-emerald)' }}
                 >
                   {option.congestion}%

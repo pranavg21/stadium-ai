@@ -51,7 +51,7 @@ export function ConciergePage({ zones }: ConciergePageProps): React.JSX.Element 
       </div>
       <div className="util-style-10">
         {QUICK_CHIPS.map((chip: string) => (
-          <button key={chip} className="btn btn-secondary" style={{ fontSize: '0.8rem', padding: '6px 12px' }} onClick={handleSend.bind(null, chip)} disabled={isLoading} aria-label={`Ask: ${chip}`}>
+          <button key={chip} className="btn btn-secondary chip-compact" onClick={handleSend.bind(null, chip)} disabled={isLoading} aria-label={`Ask: ${chip}`}>
             {chip}
           </button>
         ))}

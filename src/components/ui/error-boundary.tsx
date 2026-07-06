@@ -55,9 +55,9 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   public render(): ReactNode {
     if (this.state.hasError) {
       return (
-        <div className="glass-card" role="alert" style={{ textAlign: 'center', padding: '48px' }}>
-          <h2 style={{ color: 'var(--accent-rose)', marginBottom: '8px' }}>Something went wrong</h2>
-          <p style={{ color: 'var(--text-secondary)', marginBottom: '16px' }}>{this.state.errorMessage}</p>
+        <div className="glass-card error-center" role="alert">
+          <h2 className="error-title">Something went wrong</h2>
+          <p className="error-message">{this.state.errorMessage}</p>
           <button
             className="btn btn-primary"
             onClick={this.handleRetry}

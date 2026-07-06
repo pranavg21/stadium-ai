@@ -9,8 +9,7 @@ import { GoogleGenerativeAI, type GenerativeModel } from '@google/generative-ai'
 import { logger } from './logger';
 
 /** API key from environment variables. */
-const envKey: unknown = (import.meta.env as Record<string, unknown>)['VITE_GEMINI_API_KEY'];
-const API_KEY: string = typeof envKey === 'string' ? envKey : '';
+const API_KEY: string = import.meta.env.VITE_GEMINI_API_KEY ?? '';
 
 /** Singleton AI client instance. */
 let aiClient: GoogleGenerativeAI | null = null;

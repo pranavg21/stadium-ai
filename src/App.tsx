@@ -13,6 +13,7 @@ import { SkipLink } from './components/layout/skip-link';
 import { ErrorBoundary } from './components/ui/error-boundary';
 import { LoadingSkeleton } from './components/ui/loading-skeleton';
 import { useCrowdData } from './hooks/use-crowd-data';
+import { useReducedMotion } from './hooks/use-reduced-motion';
 import { ROUTES, MAIN_CONTENT_ID } from './lib/constants';
 import './index.css';
 
@@ -35,12 +36,13 @@ const OfflinePage = lazy(() => import('./pages/offline-page').then((m) => ({ def
  */
 export function App(): React.JSX.Element {
   const { zones, isSimulating, toggleSimulation } = useCrowdData();
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <BrowserRouter>
       <ErrorBoundary>
         <SkipLink />
-        <div className="app-layout">
+        <div className="app-layout" data-reduced-motion={prefersReducedMotion || undefined}>
           <AppSidebar />
           <AppHeader isSimulating={isSimulating} onToggleSimulation={toggleSimulation} />
           <main id={MAIN_CONTENT_ID} className="app-main">

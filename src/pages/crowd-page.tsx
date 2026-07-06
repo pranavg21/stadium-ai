@@ -44,7 +44,7 @@ export function CrowdPage({ zones }: CrowdPageProps): React.JSX.Element {
           <div className="util-style-14">
             {sortedZones.map((zone: StadiumZone) => (
               <div key={zone.id} className="util-style-15">
-                <span style={{ fontSize: '0.85rem', fontWeight: 500 }}>{zone.name}</span>
+                <span className="zone-name-label">{zone.name}</span>
                 <div className="util-style-16">
                   <span className={`status-badge ${zone.status}`}>{zone.status}</span>
                   <span className="util-style-17">{zone.occupancy}%</span>

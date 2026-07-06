@@ -16,8 +16,8 @@ import { logger } from './logger';
  * @param fallback - The fallback value if the env var is missing
  * @returns The resolved string value
  */
-function readEnv(key: string, fallback: string): string {
-  const value: unknown = (import.meta.env as Record<string, unknown>)[key];
+function readEnv(key: keyof ImportMetaEnv, fallback: string): string {
+  const value: string | undefined = import.meta.env[key];
   return typeof value === 'string' && value.length > 0 ? value : fallback;
 }
 

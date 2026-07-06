@@ -59,7 +59,7 @@ export function ChatPanel({ messages, isLoading, onSend, placeholder }: ChatPane
         ))}
         {isLoading && (
           <div className="chat-message assistant" role="status" aria-label="Generating response">
-            <span className="skeleton skeleton-text" style={{ width: '60%' }} />
+            <span className="skeleton skeleton-text skeleton-w60" />
           </div>
         )}
         <div ref={messagesEndRef} />

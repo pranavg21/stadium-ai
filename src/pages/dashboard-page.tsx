@@ -40,7 +40,7 @@ export function DashboardPage({ zones }: DashboardPageProps): React.JSX.Element 
         </div>
         <ExportButton data={zones} label="dashboard-zones" />
       </div>
-      <div className="grid-4" style={{ marginBottom: '24px' }}>
+      <div className="grid-4 mb-24">
         <StatCard label="Total Attendance" value={stats.total.toLocaleString()} trend="up" trendText={`of ${stats.capacity.toLocaleString()} capacity`} />
         <StatCard label="Avg Occupancy" value={`${stats.avg}%`} color={stats.avg > 70 ? 'var(--accent-amber)' : 'var(--accent-emerald)'} />
         <StatCard label="Active Zones" value={zones.length} trend="stable" trendText="zones monitored" />

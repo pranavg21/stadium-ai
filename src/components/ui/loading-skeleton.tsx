@@ -11,11 +11,11 @@
  */
 export function LoadingSkeleton(): React.JSX.Element {
   return (
-    <div role="status" aria-label="Loading content" aria-busy="true" style={{ padding: '24px' }}>
-      <div className="skeleton skeleton-text" style={{ width: '40%', height: '24px' }} />
-      <div className="skeleton skeleton-text" style={{ width: '70%' }} />
-      <div className="skeleton skeleton-text" style={{ width: '55%' }} />
-      <div className="skeleton skeleton-card" style={{ marginTop: '16px' }} />
+    <div role="status" aria-label="Loading content" aria-busy="true" className="skeleton-pad">
+      <div className="skeleton skeleton-text skeleton-w40" />
+      <div className="skeleton skeleton-text skeleton-w70" />
+      <div className="skeleton skeleton-text skeleton-w55" />
+      <div className="skeleton skeleton-card skeleton-mt16" />
       <span className="sr-only">Loading...</span>
     </div>
   );

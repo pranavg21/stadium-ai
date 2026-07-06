@@ -48,7 +48,7 @@ export function LandingPage(): React.JSX.Element {
 
   return (
     <section>
-      <div className="page-header" style={{ textAlign: 'center', marginBottom: '48px' }}>
+      <div className="page-header landing-hero">
         <h1 className="util-style-20">
           StadiumAI
         </h1>
@@ -60,9 +60,9 @@ export function LandingPage(): React.JSX.Element {
       <div className="grid-auto">
         {FEATURES.map((f) => (
           <button key={f.title} className="glass-card util-style-23" onClick={handleFeatureClick.bind(null, f.route)} aria-label={`Open ${f.title}: ${f.desc}`}>
-            <div style={{ color: f.color, marginBottom: '12px' }}>{f.icon}</div>
+            <div className="feature-icon-wrap" style={{ color: f.color }}>{f.icon}</div>
             <h2 className="util-style-24">{f.title}</h2>
-            <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{f.desc}</p>
+            <p className="feature-desc">{f.desc}</p>
           </button>
         ))}
       </div>

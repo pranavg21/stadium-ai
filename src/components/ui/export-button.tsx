@@ -41,7 +41,7 @@ export function ExportButton({ data, label, csvHeaders, csvRows }: ExportButtonP
   }, [csvHeaders, csvRows, label]);
 
   return (
-    <div style={{ display: 'flex', gap: '8px' }}>
+    <div className="export-wrap">
       <button className="btn btn-secondary" onClick={handleJsonExport} aria-label={`Export ${label} as JSON`}>
         <Download size={14} aria-hidden="true" />
         JSON
