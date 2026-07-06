@@ -43,20 +43,25 @@ export function TransportPage(): React.JSX.Element {
         {sorted.map((option: TransportOption) => (
           <div key={option.id} className="glass-card util-style-46">
             <div className="util-style-47">
-              <div style={{ color: 'var(--accent-blue)' }}>{MODE_ICONS[option.mode]}</div>
+              <div className="transport-icon">{MODE_ICONS[option.mode]}</div>
               <div>
-                <h2 style={{ fontSize: '0.95rem', fontWeight: 600 }}>{option.name}</h2>
+                <h2 className="transport-name">{option.name}</h2>
                 <span className="util-style-48">{option.mode}</span>
               </div>
             </div>
             <div className="util-style-49">
-              <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '1rem', fontWeight: 700 }}>{formatDuration(option.estimatedMinutes)}</div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>est. travel</div>
+              <div className="transport-right">
+                <div className="transport-time">{formatDuration(option.estimatedMinutes)}</div>
+                <div className="transport-label-sm">est. travel</div>
               </div>
-              <div style={{ minWidth: '70px', textAlign: 'center' }}>
-                <div className="util-style-50" style={{ color: option.congestion > 70 ? 'var(--accent-amber)' : 'var(--accent-emerald)' }}>{option.congestion}%</div>
-                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>congestion</div>
+              <div className="transport-congestion-wrap">
+                <div
+                  className="util-style-50"
+                  style={{ color: option.congestion > 70 ? 'var(--accent-amber)' : 'var(--accent-emerald)' }}
+                >
+                  {option.congestion}%
+                </div>
+                <div className="transport-congestion-label">congestion</div>
               </div>
               <span className={`status-badge ${option.available ? 'low' : 'critical'}`} aria-label={`Status: ${option.available ? 'available' : 'unavailable'}`}>
                 {option.available ? 'Available' : 'Full'}

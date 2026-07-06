@@ -1,4 +1,4 @@
-﻿
+
 /* â”€â”€ Grid Layouts â”€â”€ */
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -52,6 +52,42 @@
   white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity var(--transition-fast);
 }
 .zone-dot:hover .zone-tooltip { opacity: 1; }
+.zone-map-label {
+  position: absolute; inset: 0; display: flex; align-items: center;
+  justify-content: center; color: var(--text-muted); font-size: 0.8rem;
+  opacity: 0.3; pointer-events: none;
+}
+
+/* -- Page Utility Classes -- */
+.page-center { text-align: center; padding: 60px 20px; }
+.page-card-center { max-width: 500px; margin: 0 auto; }
+.page-icon-muted { color: var(--text-muted); margin-bottom: 16px; }
+.offline-list-item { font-size: 0.85rem; color: var(--text-secondary); }
+.offline-check { color: var(--accent-emerald); }
+.emergency-label { color: var(--accent-rose); }
+.text-secondary-sm { color: var(--text-secondary); }
+.transport-icon { color: var(--accent-blue); }
+.transport-name { font-size: 0.95rem; font-weight: 600; }
+.transport-time { font-size: 1rem; font-weight: 700; }
+.transport-label-sm { font-size: 0.75rem; color: var(--text-muted); }
+.transport-right { text-align: right; }
+.transport-congestion-wrap { min-width: 70px; text-align: center; }
+.transport-congestion-label { font-size: 0.7rem; color: var(--text-muted); }
+.icon-accent-emerald { color: var(--accent-emerald); }
+.text-accent-rose { color: var(--accent-rose); }
+.accessibility-icon { color: var(--accent-emerald); }
+.accessibility-name { font-size: 1rem; font-weight: 700; }
+.accessibility-zone { font-size: 0.8rem; color: var(--text-muted); }
+.accessibility-feat { color: var(--accent-emerald); }
+.nav-label { font-size: 0.8rem; color: var(--text-muted); }
+.nav-result-bg { background: var(--bg-secondary); }
+.nav-route-list { padding-left: 20px; list-style: decimal; }
+.sustainability-center { text-align: center; }
+.sustainability-trend { font-size: 0.75rem; }
+.ops-vol-name { font-size: 0.85rem; font-weight: 600; }
+.ops-vol-task { font-size: 0.75rem; color: var(--text-muted); }
+.mb-24 { margin-bottom: 24px; }
+.mt-24 { margin-top: 24px; }
 
 /* â”€â”€ Progress Ring â”€â”€ */
 .progress-ring-container { display: inline-flex; position: relative; }

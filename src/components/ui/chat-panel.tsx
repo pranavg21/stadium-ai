@@ -47,6 +47,10 @@ export function ChatPanel({ messages, isLoading, onSend, placeholder }: ChatPane
     setInput('');
   }, [input, onSend]);
 
+  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>): void => {
+    setInput(e.target.value);
+  }, []);
+
   return (
     <div className="chat-container">
       <div className="chat-messages" role="log" aria-live="polite" aria-label="Chat messages">
@@ -65,7 +69,7 @@ export function ChatPanel({ messages, isLoading, onSend, placeholder }: ChatPane
           type="text"
           className="chat-input"
           value={input}
-          onChange={(e): void => setInput(e.target.value)}
+          onChange={handleInputChange}
           placeholder={placeholder ?? 'Ask StadiumAI anything...'}
           aria-label="Chat message input"
           disabled={isLoading}

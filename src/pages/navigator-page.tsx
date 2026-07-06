@@ -35,6 +35,14 @@ export function NavigatorPage({ zones }: NavigatorPageProps): React.JSX.Element 
     sendMessage(msg, NAVIGATOR_SYSTEM_PROMPT);
   }, [sendMessage]);
 
+  const handleFromChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>): void => {
+    setFrom(e.target.value);
+  }, []);
+
+  const handleToChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>): void => {
+    setTo(e.target.value);
+  }, []);
+
   return (
     <section>
       <div className="page-header">
@@ -45,19 +53,19 @@ export function NavigatorPage({ zones }: NavigatorPageProps): React.JSX.Element 
         <div className="glass-card">
           <h2 className="util-style-25">Find Route</h2>
           <div className="util-style-26">
-            <label htmlFor="nav-from" style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>From</label>
-            <select id="nav-from" className="chat-input" value={from} onChange={(e): void => setFrom(e.target.value)} aria-label="Starting zone">
+            <label htmlFor="nav-from" className="nav-label">From</label>
+            <select id="nav-from" className="chat-input" value={from} onChange={handleFromChange} aria-label="Starting zone">
               {STADIUM_ZONES.map((z: StadiumZone) => <option key={z.id} value={z.id}>{z.name}</option>)}
             </select>
-            <label htmlFor="nav-to" style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>To</label>
-            <select id="nav-to" className="chat-input" value={to} onChange={(e): void => setTo(e.target.value)} aria-label="Destination zone">
+            <label htmlFor="nav-to" className="nav-label">To</label>
+            <select id="nav-to" className="chat-input" value={to} onChange={handleToChange} aria-label="Destination zone">
               {STADIUM_ZONES.map((z: StadiumZone) => <option key={z.id} value={z.id}>{z.name}</option>)}
             </select>
           </div>
           {route !== null && (
-            <div className="glass-card" style={{ background: 'var(--bg-secondary)' }}>
+            <div className="glass-card nav-result-bg">
               <h3 className="util-style-27">Recommended Route</h3>
-              <ol style={{ paddingLeft: '20px', listStyle: 'decimal' }}>
+              <ol className="nav-route-list">
                 {route.path.map((id: string) => (
                   <li key={id} className="util-style-28">{zoneNames.get(id) ?? id}</li>
                 ))}

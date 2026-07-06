@@ -23,11 +23,7 @@ interface ZoneMapProps {
 export function ZoneMap({ zones, onZoneClick }: ZoneMapProps): React.JSX.Element {
   return (
     <div className="zone-map" role="img" aria-label="Stadium zone map showing current occupancy levels">
-      <div style={{
-        position: 'absolute', inset: 0, display: 'flex', alignItems: 'center',
-        justifyContent: 'center', color: 'var(--text-muted)', fontSize: '0.8rem',
-        opacity: 0.3, pointerEvents: 'none',
-      }}>
+      <div className="zone-map-label">
         🏟️ MetLife Stadium
       </div>
       {zones.map((zone) => (

@@ -38,23 +38,23 @@ export function AccessibilityPage(): React.JSX.Element {
         {FACILITIES.map((facility: AccessibleFacility) => (
           <div key={facility.name} className="glass-card">
             <div className="util-style-4">
-              <div style={{ color: 'var(--accent-emerald)' }}>{facility.icon}</div>
+              <div className="accessibility-icon">{facility.icon}</div>
               <div>
-                <h2 style={{ fontSize: '1rem', fontWeight: 700 }}>{facility.name}</h2>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{facility.zone}</span>
+                <h2 className="accessibility-name">{facility.name}</h2>
+                <span className="accessibility-zone">{facility.zone}</span>
               </div>
             </div>
             <ul className="util-style-5">
               {facility.features.map((feat: string) => (
                 <li key={feat} className="util-style-6">
-                  <span style={{ color: 'var(--accent-emerald)' }} aria-hidden="true">✓</span> {feat}
+                  <span className="accessibility-feat" aria-hidden="true">✓</span> {feat}
                 </li>
               ))}
             </ul>
           </div>
         ))}
       </div>
-      <div className="glass-card" style={{ marginTop: '24px' }}>
+      <div className="glass-card mt-24">
         <h2 className="util-style-7">Accessibility Assistance</h2>
         <p className="util-style-8">
           Need help? Our trained accessibility volunteers speak 20+ languages and are stationed at every entrance.

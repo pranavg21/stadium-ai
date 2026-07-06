@@ -9,15 +9,27 @@
 import { initializeApp, type FirebaseApp } from 'firebase/app';
 import { logger } from './logger';
 
+/**
+ * Reads an environment variable safely, returning a fallback if not set.
+ *
+ * @param key - The environment variable key on import.meta.env
+ * @param fallback - The fallback value if the env var is missing
+ * @returns The resolved string value
+ */
+function readEnv(key: string, fallback: string): string {
+  const value: unknown = (import.meta.env as Record<string, unknown>)[key];
+  return typeof value === 'string' && value.length > 0 ? value : fallback;
+}
+
 /** Firebase configuration from environment variables. */
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY as string | undefined ?? 'demo-api-key',
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN as string | undefined ?? 'demo.firebaseapp.com',
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID as string | undefined ?? 'demo-project',
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET as string | undefined ?? 'demo.appspot.com',
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID as string | undefined ?? '000000000000',
-  appId: import.meta.env.VITE_FIREBASE_APP_ID as string | undefined ?? '1:000:web:demo',
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID as string | undefined ?? 'G-DEMO',
+  apiKey: readEnv('VITE_FIREBASE_API_KEY', 'demo-api-key'),
+  authDomain: readEnv('VITE_FIREBASE_AUTH_DOMAIN', 'demo.firebaseapp.com'),
+  projectId: readEnv('VITE_FIREBASE_PROJECT_ID', 'demo-project'),
+  storageBucket: readEnv('VITE_FIREBASE_STORAGE_BUCKET', 'demo.appspot.com'),
+  messagingSenderId: readEnv('VITE_FIREBASE_MESSAGING_SENDER_ID', '000000000000'),
+  appId: readEnv('VITE_FIREBASE_APP_ID', '1:000:web:demo'),
+  measurementId: readEnv('VITE_FIREBASE_MEASUREMENT_ID', 'G-DEMO'),
 } as const;
 
 /** Singleton Firebase app instance. */

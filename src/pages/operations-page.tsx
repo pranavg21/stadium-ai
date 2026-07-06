@@ -42,7 +42,7 @@ export function OperationsPage({ zones }: OperationsPageProps): React.JSX.Elemen
         <h1>Operations Center</h1>
         <p>Real-time command and AI-powered decision support</p>
       </div>
-      <div className="grid-4" style={{ marginBottom: '24px' }}>
+      <div className="grid-4 mb-24">
         <StatCard label="Active Volunteers" value={activeVolunteers} trend="stable" trendText={`${availableVolunteers} available`} />
         <StatCard label="Critical Zones" value={criticalZones} color={criticalZones > 0 ? 'var(--accent-rose)' : 'var(--accent-emerald)'} />
         <StatCard label="Total Volunteers" value={VOLUNTEERS.length} />
@@ -55,8 +55,8 @@ export function OperationsPage({ zones }: OperationsPageProps): React.JSX.Elemen
             {VOLUNTEERS.map((vol: Volunteer) => (
               <div key={vol.id} className="util-style-37">
                 <div>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 600 }}>{vol.name}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{vol.currentTask ?? 'Unassigned'}</div>
+                  <div className="ops-vol-name">{vol.name}</div>
+                  <div className="ops-vol-task">{vol.currentTask ?? 'Unassigned'}</div>
                 </div>
                 <span className={`status-badge ${vol.status === 'assigned' ? 'moderate' : vol.status === 'available' ? 'low' : 'crowded'}`}>
                   {vol.status}
