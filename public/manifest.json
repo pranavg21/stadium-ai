@@ -1,0 +1,17 @@
+{
+  "name": "StadiumAI",
+  "short_name": "StadiumAI",
+  "description": "AI-Powered Smart Stadium Platform for FIFA World Cup 2026",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0e1a",
+  "theme_color": "#0a0e1a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
