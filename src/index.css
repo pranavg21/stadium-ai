@@ -162,3 +162,9 @@ ul, ol { list-style: none; }
 .stat-card-trend.up { color: var(--accent-emerald); }
 .stat-card-trend.down { color: var(--accent-rose); }
 .stat-card-trend.stable { color: var(--accent-amber); }
+
+/* ── Layout Mobile Override ── */
+@media (max-width: 768px) {
+  .app-main { margin-left: 0; }
+  .app-header { left: 0; }
+}
