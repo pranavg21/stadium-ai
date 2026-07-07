@@ -9,18 +9,18 @@ import type { StadiumZone, MatchInfo, TransportOption, Volunteer, Sustainability
 
 /** Seed data for stadium zones at MetLife Stadium. */
 export const STADIUM_ZONES: readonly StadiumZone[] = [
-  { id: 'zone-a', name: 'Gate A - Main Entrance', category: 'entrance', occupancy: 72, capacity: 5000, currentCount: 3600, status: 'crowded', coordinates: { x: 50, y: 10 } },
-  { id: 'zone-b', name: 'Section 100 - Lower Bowl', category: 'seating', occupancy: 85, capacity: 8000, currentCount: 6800, status: 'crowded', coordinates: { x: 40, y: 40 } },
-  { id: 'zone-c', name: 'Concession West', category: 'concession', occupancy: 91, capacity: 2000, currentCount: 1820, status: 'critical', coordinates: { x: 20, y: 50 } },
-  { id: 'zone-d', name: 'Restrooms North', category: 'restroom', occupancy: 65, capacity: 800, currentCount: 520, status: 'moderate', coordinates: { x: 30, y: 25 } },
-  { id: 'zone-e', name: 'Section 200 - Upper Bowl', category: 'seating', occupancy: 45, capacity: 10000, currentCount: 4500, status: 'moderate', coordinates: { x: 60, y: 35 } },
-  { id: 'zone-f', name: 'Concession East', category: 'concession', occupancy: 38, capacity: 2000, currentCount: 760, status: 'low', coordinates: { x: 80, y: 50 } },
-  { id: 'zone-g', name: 'VIP Lounge', category: 'vip', occupancy: 55, capacity: 500, currentCount: 275, status: 'moderate', coordinates: { x: 50, y: 45 } },
-  { id: 'zone-h', name: 'Medical Station', category: 'medical', occupancy: 20, capacity: 100, currentCount: 20, status: 'low', coordinates: { x: 45, y: 60 } },
-  { id: 'zone-i', name: 'Merchandise Store', category: 'merchandise', occupancy: 78, capacity: 1500, currentCount: 1170, status: 'crowded', coordinates: { x: 70, y: 20 } },
-  { id: 'zone-j', name: 'Gate B - South Entrance', category: 'entrance', occupancy: 42, capacity: 4000, currentCount: 1680, status: 'moderate', coordinates: { x: 50, y: 90 } },
-  { id: 'zone-k', name: 'Parking Lot A', category: 'parking', occupancy: 88, capacity: 3000, currentCount: 2640, status: 'crowded', coordinates: { x: 15, y: 85 } },
-  { id: 'zone-l', name: 'Restrooms South', category: 'restroom', occupancy: 30, capacity: 600, currentCount: 180, status: 'low', coordinates: { x: 70, y: 75 } },
+  { id: 'zone-a', name: 'Gate A - Main Entrance', category: 'entrance', occupancy: 72, capacity: 5000, currentCount: 3600, status: 'crowded', coordinates: { x: 50, y: 6 } },
+  { id: 'zone-b', name: 'Section 100 - Lower Bowl', category: 'seating', occupancy: 85, capacity: 8000, currentCount: 6800, status: 'crowded', coordinates: { x: 30, y: 18 } },
+  { id: 'zone-c', name: 'Concession West', category: 'concession', occupancy: 91, capacity: 2000, currentCount: 1820, status: 'critical', coordinates: { x: 8, y: 50 } },
+  { id: 'zone-d', name: 'Restrooms North', category: 'restroom', occupancy: 65, capacity: 800, currentCount: 520, status: 'moderate', coordinates: { x: 68, y: 15 } },
+  { id: 'zone-e', name: 'Section 200 - Upper Bowl', category: 'seating', occupancy: 45, capacity: 10000, currentCount: 4500, status: 'moderate', coordinates: { x: 75, y: 22 } },
+  { id: 'zone-f', name: 'Concession East', category: 'concession', occupancy: 38, capacity: 2000, currentCount: 760, status: 'low', coordinates: { x: 92, y: 50 } },
+  { id: 'zone-g', name: 'VIP Lounge', category: 'vip', occupancy: 55, capacity: 500, currentCount: 275, status: 'moderate', coordinates: { x: 50, y: 80 } },
+  { id: 'zone-h', name: 'Medical Station', category: 'medical', occupancy: 20, capacity: 100, currentCount: 20, status: 'low', coordinates: { x: 18, y: 30 } },
+  { id: 'zone-i', name: 'Merchandise Store', category: 'merchandise', occupancy: 78, capacity: 1500, currentCount: 1170, status: 'crowded', coordinates: { x: 82, y: 30 } },
+  { id: 'zone-j', name: 'Gate B - South Entrance', category: 'entrance', occupancy: 42, capacity: 4000, currentCount: 1680, status: 'moderate', coordinates: { x: 50, y: 94 } },
+  { id: 'zone-k', name: 'Parking Lot A', category: 'parking', occupancy: 88, capacity: 3000, currentCount: 2640, status: 'crowded', coordinates: { x: 18, y: 75 } },
+  { id: 'zone-l', name: 'Restrooms South', category: 'restroom', occupancy: 30, capacity: 600, currentCount: 180, status: 'low', coordinates: { x: 82, y: 75 } },
 ] as const;
 
 /** Current match information. */
