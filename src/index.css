@@ -1,6 +1,7 @@
 @import './components.css';
 @import './utilities.css';
 @import './utilities-2.css';
+@import './responsive.css';
 /**
  * Global CSS design system for StadiumAI.
  * Premium dark theme with glassmorphism, micro-animations, and accessibility.

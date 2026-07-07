@@ -9,6 +9,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './App';
 import { logger } from './lib/logger';
+import { extractErrorMessage } from './lib/error-helpers';
 
 const rootElement = document.getElementById('root');
 
@@ -32,7 +33,7 @@ if ('serviceWorker' in navigator) {
       })
       .catch((err: unknown) => {
         logger.warn('Service worker registration failed', {
-          error: err instanceof Error ? err.message : String(err),
+          error: extractErrorMessage(err),
         });
       });
   });

@@ -4,7 +4,7 @@
  * @module UseChat
  */
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { sendChatMessage } from '../lib/gemini-chat';
 import { extractErrorMessage } from '../lib/error-helpers';
 import { logger } from '../lib/logger';
@@ -44,6 +44,11 @@ function generateMessageId(): string {
 export function useChat(): UseChatReturn {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const messagesRef = useRef<ChatMessage[]>(messages);
+
+  useEffect(() => {
+    messagesRef.current = messages;
+  }, [messages]);
 
   const sendMessage = useCallback(async (content: string, systemPrompt: string): Promise<void> => {
     const userMsg: ChatMessage = {
@@ -57,7 +62,8 @@ export function useChat(): UseChatReturn {
     setIsLoading(true);
 
     try {
-      const response = await sendChatMessage(content, [...messages, userMsg], systemPrompt);
+      const currentMessages = [...messagesRef.current, userMsg];
+      const response = await sendChatMessage(content, currentMessages, systemPrompt);
       const assistantMsg: ChatMessage = {
         id: generateMessageId(),
         role: 'assistant',
@@ -70,7 +76,7 @@ export function useChat(): UseChatReturn {
     } finally {
       setIsLoading(false);
     }
-  }, [messages]);
+  }, []);
 
   const clearMessages = useCallback((): void => {
     setMessages([]);

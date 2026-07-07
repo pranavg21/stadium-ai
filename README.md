@@ -19,7 +19,7 @@ StadiumAI is a next-generation stadium intelligence platform designed to handle 
 
 ## 🛠️ Tech Stack & Architecture
 
-*   **Frontend**: React 18, TypeScript, Vite
+*   **Frontend**: React 19, TypeScript, Vite
 *   **Styling**: Pure CSS Modules with extracted utility classes (Zero Inline Styles for Strict Compliance).
 *   **Data Layer**: Google Cloud Firestore (Strict Zod schema parsing, Zero `any`/`as` casting).
 *   **Deployment**: Dockerized and deployed globally on Google Cloud Run via Cloud Build.

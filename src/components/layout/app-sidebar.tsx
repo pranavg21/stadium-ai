@@ -7,7 +7,7 @@
 
 import { useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Navigation, Users, MessageSquare, Accessibility, Bus, Leaf, Radio, UserCheck } from 'lucide-react';
+import { Home, LayoutDashboard, Navigation, Users, MessageSquare, Accessibility, Bus, Leaf, Radio, UserCheck } from 'lucide-react';
 import { useAuth } from '../../hooks/use-auth';
 import { ROUTES } from '../../lib/constants';
 
@@ -20,6 +20,7 @@ interface NavItem {
 
 /** Navigation items for the sidebar. */
 const NAV_ITEMS: readonly NavItem[] = [
+  { label: 'Home', path: ROUTES.HOME, icon: <Home aria-hidden="true" /> },
   { label: 'Dashboard', path: ROUTES.DASHBOARD, icon: <LayoutDashboard aria-hidden="true" /> },
   { label: 'AI Navigator', path: ROUTES.NAVIGATOR, icon: <Navigation aria-hidden="true" /> },
   { label: 'Crowd Intelligence', path: ROUTES.CROWD, icon: <Users aria-hidden="true" /> },
