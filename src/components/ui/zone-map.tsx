@@ -5,6 +5,7 @@
  * @module ZoneMap
  */
 
+import { useCallback } from 'react';
 import type { StadiumZone } from '../../lib/types';
 
 /** Props for the ZoneMap component. */
@@ -12,7 +13,7 @@ interface ZoneMapProps {
   /** Array of stadium zones to display. */
   readonly zones: readonly StadiumZone[];
   /** Optional callback when a zone is clicked. */
-  readonly onZoneClick?: (zone: StadiumZone) => void;
+  readonly onZoneClick?: ((zone: StadiumZone) => void) | undefined;
 }
 
 /**
@@ -27,21 +28,37 @@ export function ZoneMap({ zones, onZoneClick }: ZoneMapProps): React.JSX.Element
     <div className="zone-map" role="img" aria-label="Stadium zone map showing current occupancy levels">
       <StadiumBlueprint />
       {zones.map((zone) => (
-        <button
-          key={zone.id}
-          className={`zone-dot ${zone.status}`}
-          style={{ left: `${zone.coordinates.x}%`, top: `${zone.coordinates.y}%` }}
-          onClick={onZoneClick ? onZoneClick.bind(null, zone) : undefined}
-          aria-label={`${zone.name}: ${zone.occupancy}% occupancy, status ${zone.status}`}
-          tabIndex={0}
-        >
-          <div className="zone-tooltip">
-            <strong>{zone.name}</strong><br />
-            {zone.occupancy}% • {zone.status}
-          </div>
-        </button>
+        <ZoneDot key={zone.id} zone={zone} onClick={onZoneClick} />
       ))}
     </div>
+  );
+}
+
+interface ZoneDotProps {
+  readonly zone: StadiumZone;
+  readonly onClick?: ((zone: StadiumZone) => void) | undefined;
+}
+
+function ZoneDot({ zone, onClick }: ZoneDotProps): React.JSX.Element {
+  const handleClick = useCallback(() => {
+    if (onClick !== undefined) {
+      onClick(zone);
+    }
+  }, [onClick, zone]);
+
+  return (
+    <button
+      className={`zone-dot ${zone.status}`}
+      style={{ '--x': `${zone.coordinates.x}%`, '--y': `${zone.coordinates.y}%` } as React.CSSProperties}
+      onClick={onClick !== undefined ? handleClick : undefined}
+      aria-label={`${zone.name}: ${zone.occupancy}% occupancy, status ${zone.status}`}
+      tabIndex={0}
+    >
+      <div className="zone-tooltip">
+        <strong>{zone.name}</strong><br />
+        {zone.occupancy}% • {zone.status}
+      </div>
+    </button>
   );
 }
 

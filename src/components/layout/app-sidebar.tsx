@@ -7,7 +7,7 @@
 
 import { useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Home, LayoutDashboard, Navigation, Users, MessageSquare, Accessibility, Bus, Leaf, Radio, UserCheck } from 'lucide-react';
+import { Home, LayoutDashboard, Navigation, Users, MessageSquare, Accessibility, Bus, Leaf, Radio, AlertTriangle, Star } from 'lucide-react';
 import { useAuth } from '../../hooks/use-auth';
 import { ROUTES } from '../../lib/constants';
 
@@ -29,6 +29,8 @@ const NAV_ITEMS: readonly NavItem[] = [
   { label: 'Transport', path: ROUTES.TRANSPORT, icon: <Bus aria-hidden="true" /> },
   { label: 'Sustainability', path: ROUTES.SUSTAINABILITY, icon: <Leaf aria-hidden="true" /> },
   { label: 'Operations', path: ROUTES.OPERATIONS, icon: <Radio aria-hidden="true" /> },
+  { label: 'Emergency', path: ROUTES.EMERGENCY, icon: <AlertTriangle aria-hidden="true" /> },
+  { label: 'Feedback', path: ROUTES.FEEDBACK, icon: <Star aria-hidden="true" /> },
 ];
 
 /**
@@ -86,7 +88,6 @@ export function AppSidebar(): React.JSX.Element {
           </>
         ) : (
           <button className="btn btn-secondary" onClick={handleSignIn} aria-label="Sign in with Google">
-            <UserCheck aria-hidden="true" size={16} />
             Sign In
           </button>
         )}

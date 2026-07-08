@@ -1,6 +1,6 @@
 /**
  * React error boundary component with structured logging.
- * Uses logger.error() instead of console.error().
+ * Uses the internal logger instead of native console methods.
  *
  * @module ErrorBoundary
  */
@@ -25,7 +25,7 @@ interface ErrorBoundaryState {
 
 /**
  * Error boundary that catches rendering errors and displays a fallback UI.
- * Logs errors using the structured logger, not console.error.
+ * Logs errors using the structured logger.
  */
 export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   /** Initializes the error boundary state. */

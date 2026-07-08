@@ -5,7 +5,7 @@
  * @module StadiumData
  */
 
-import type { StadiumZone, MatchInfo, TransportOption, Volunteer, SustainabilityMetric } from './types';
+import type { StadiumZone, MatchInfo, TransportOption, Volunteer, SustainabilityMetric, OperationalAlert } from './types';
 
 /** Seed data for stadium zones at MetLife Stadium. */
 export const STADIUM_ZONES: readonly StadiumZone[] = [
@@ -59,4 +59,11 @@ export const SUSTAINABILITY_METRICS: readonly SustainabilityMetric[] = [
   { category: 'energy', current: 24, target: 30, unit: '% reduction', trend: 'up' },
   { category: 'water', current: 35, target: 40, unit: '% conserved', trend: 'stable' },
   { category: 'carbon', current: 42, target: 50, unit: 'tons offset', trend: 'up' },
+] as const;
+
+/** Demo operational alerts for when Firestore is unavailable. */
+export const DEMO_ALERTS: readonly OperationalAlert[] = [
+  { id: 'alert-1', title: 'High Crowd Density — Zone C', message: 'Concession West has exceeded 90% capacity. Consider redirecting fans to Zone F.', severity: 'critical', zoneId: 'zone-c', createdAt: new Date().toISOString(), acknowledged: false },
+  { id: 'alert-2', title: 'Medical Request — Zone B', message: 'A fan has requested medical assistance in Section 100, Row 12.', severity: 'warning', zoneId: 'zone-b', createdAt: new Date().toISOString(), acknowledged: false },
+  { id: 'alert-3', title: 'Parking Lot A Near Capacity', message: 'Parking Lot A is at 88% capacity. Shuttles are being rerouted to Lot C.', severity: 'info', zoneId: 'zone-k', createdAt: new Date().toISOString(), acknowledged: false },
 ] as const;

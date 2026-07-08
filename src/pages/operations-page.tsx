@@ -7,6 +7,8 @@
 import { useCallback } from 'react';
 import { StatCard } from '../components/ui/stat-card';
 import { ChatPanel } from '../components/ui/chat-panel';
+import { AlertFeed } from '../components/ui/alert-feed';
+import { AlertCreator } from '../components/ui/alert-creator';
 import { useChat } from '../hooks/use-chat';
 import { OPERATIONS_SYSTEM_PROMPT, buildContextPrompt, formatZoneDataForPrompt } from '../lib/gemini-prompts';
 import { VOLUNTEERS } from '../lib/stadium-data';
@@ -48,12 +50,16 @@ export function OperationsPage({ zones }: OperationsPageProps): React.JSX.Elemen
         <StatCard label="Total Volunteers" value={VOLUNTEERS.length} />
         <StatCard label="Response Time" value="3.2 min" trend="down" trendText="improving" />
       </div>
+      <div className="grid-2 mb-24">
+        <AlertFeed />
+        <AlertCreator />
+      </div>
       <div className="grid-2">
         <div className="glass-card">
-          <h2 className="util-style-35">Volunteer Roster</h2>
-          <div className="util-style-36">
+          <h2 className="ops-volunteer-heading">Volunteer Roster</h2>
+          <div className="ops-volunteer-list">
             {VOLUNTEERS.map((vol: Volunteer) => (
-              <div key={vol.id} className="util-style-37">
+              <div key={vol.id} className="ops-volunteer-item">
                 <div>
                   <div className="ops-vol-name">{vol.name}</div>
                   <div className="ops-vol-task">{vol.currentTask ?? 'Unassigned'}</div>
@@ -66,7 +72,7 @@ export function OperationsPage({ zones }: OperationsPageProps): React.JSX.Elemen
           </div>
         </div>
         <div>
-          <h2 className="util-style-38">AI Operations Assistant</h2>
+          <h2 className="ops-ai-heading">AI Operations Assistant</h2>
           <ChatPanel messages={messages} isLoading={isLoading} onSend={handleSend} placeholder="Ask about staffing, crowd flow, or get recommendations..." />
         </div>
       </div>

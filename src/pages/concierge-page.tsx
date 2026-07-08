@@ -51,12 +51,28 @@ export function ConciergePage({ zones }: ConciergePageProps): React.JSX.Element 
       </div>
       <div className="util-style-10">
         {QUICK_CHIPS.map((chip: string) => (
-          <button key={chip} className="btn btn-secondary chip-compact" onClick={handleSend.bind(null, chip)} disabled={isLoading} aria-label={`Ask: ${chip}`}>
-            {chip}
-          </button>
+          <QuickChip key={chip} chip={chip} isLoading={isLoading} onClick={handleSend} />
         ))}
       </div>
       <ChatPanel messages={messages} isLoading={isLoading} onSend={handleSend} placeholder="Ask in any language..." />
     </section>
+  );
+}
+
+interface QuickChipProps {
+  readonly chip: string;
+  readonly isLoading: boolean;
+  readonly onClick: (msg: string) => void;
+}
+
+function QuickChip({ chip, isLoading, onClick }: QuickChipProps): React.JSX.Element {
+  const handleClick = useCallback(() => {
+    onClick(chip);
+  }, [onClick, chip]);
+
+  return (
+    <button className="btn btn-secondary chip-compact" onClick={handleClick} disabled={isLoading} aria-label={`Ask: ${chip}`}>
+      {chip}
+    </button>
   );
 }

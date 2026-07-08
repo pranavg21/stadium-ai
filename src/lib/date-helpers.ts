@@ -85,3 +85,21 @@ export function formatDuration(minutes: number): string {
 export function nowIso(): string {
   return new Date().toISOString();
 }
+
+/**
+ * Formats a match start time to a short kickoff string.
+ *
+ * @param isoString - The ISO 8601 match start time
+ * @returns Formatted kickoff string (e.g., "Jul 10, 8:00 PM")
+ */
+export function formatMatchTime(isoString: string): string {
+  const date = new Date(isoString);
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+  }) + ', ' + date.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+  });
+}

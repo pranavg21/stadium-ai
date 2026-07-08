@@ -59,13 +59,28 @@ export function LandingPage(): React.JSX.Element {
       </div>
       <div className="grid-auto">
         {FEATURES.map((f) => (
-          <button key={f.title} className="glass-card util-style-23" onClick={handleFeatureClick.bind(null, f.route)} aria-label={`Open ${f.title}: ${f.desc}`}>
-            <div className="feature-icon-wrap" style={{ color: f.color }}>{f.icon}</div>
-            <h2 className="util-style-24">{f.title}</h2>
-            <p className="feature-desc">{f.desc}</p>
-          </button>
+          <FeatureCard key={f.title} feature={f} onClick={handleFeatureClick} />
         ))}
       </div>
     </section>
+  );
+}
+
+interface FeatureCardProps {
+  readonly feature: FeatureItem;
+  readonly onClick: (route: string) => void;
+}
+
+function FeatureCard({ feature, onClick }: FeatureCardProps): React.JSX.Element {
+  const handleClick = useCallback(() => {
+    onClick(feature.route);
+  }, [onClick, feature.route]);
+
+  return (
+    <button className="glass-card util-style-23" onClick={handleClick} aria-label={`Open ${feature.title}: ${feature.desc}`}>
+      <div className="feature-icon-wrap" style={{ '--feature-color': feature.color } as React.CSSProperties}>{feature.icon}</div>
+      <h2 className="util-style-24">{feature.title}</h2>
+      <p className="feature-desc">{feature.desc}</p>
+    </button>
   );
 }

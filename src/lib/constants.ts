@@ -115,6 +115,8 @@ export const ROUTES = {
   TRANSPORT: '/transport',
   SUSTAINABILITY: '/sustainability',
   OPERATIONS: '/operations',
+  EMERGENCY: '/emergency',
+  FEEDBACK: '/feedback',
   OFFLINE: '/offline',
 } as const;
 

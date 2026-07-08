@@ -28,6 +28,8 @@ const TransportPage = lazy(() => import('./pages/transport-page').then((m) => ({
 const SustainabilityPage = lazy(() => import('./pages/sustainability-page').then((m) => ({ default: m.SustainabilityPage })));
 const OperationsPage = lazy(() => import('./pages/operations-page').then((m) => ({ default: m.OperationsPage })));
 const OfflinePage = lazy(() => import('./pages/offline-page').then((m) => ({ default: m.OfflinePage })));
+const EmergencyPage = lazy(() => import('./pages/emergency-page').then((m) => ({ default: m.EmergencyPage })));
+const FeedbackPage = lazy(() => import('./pages/feedback-page').then((m) => ({ default: m.FeedbackPage })));
 
 /**
  * Root application component with layout, routing, and error handling.
@@ -57,6 +59,8 @@ export function App(): React.JSX.Element {
                 <Route path={ROUTES.TRANSPORT} element={<TransportPage />} />
                 <Route path={ROUTES.SUSTAINABILITY} element={<SustainabilityPage />} />
                 <Route path={ROUTES.OPERATIONS} element={<OperationsPage zones={zones} />} />
+                <Route path={ROUTES.EMERGENCY} element={<EmergencyPage />} />
+                <Route path={ROUTES.FEEDBACK} element={<FeedbackPage />} />
                 <Route path={ROUTES.OFFLINE} element={<OfflinePage />} />
                 <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
               </Routes>
