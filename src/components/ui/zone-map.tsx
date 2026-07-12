@@ -46,10 +46,15 @@ function ZoneDot({ zone, onClick }: ZoneDotProps): React.JSX.Element {
     }
   }, [onClick, zone]);
 
+  const style: React.CSSProperties & { '--x'?: string; '--y'?: string } = {
+    '--x': `${zone.coordinates.x}%`,
+    '--y': `${zone.coordinates.y}%`,
+  };
+
   return (
     <button
       className={`zone-dot ${zone.status}`}
-      style={{ '--x': `${zone.coordinates.x}%`, '--y': `${zone.coordinates.y}%` } as React.CSSProperties}
+      style={style}
       onClick={onClick !== undefined ? handleClick : undefined}
       aria-label={`${zone.name}: ${zone.occupancy}% occupancy, status ${zone.status}`}
       tabIndex={0}

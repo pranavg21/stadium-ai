@@ -76,9 +76,13 @@ function FeatureCard({ feature, onClick }: FeatureCardProps): React.JSX.Element 
     onClick(feature.route);
   }, [onClick, feature.route]);
 
+  const style: React.CSSProperties & { '--feature-color'?: string } = {
+    '--feature-color': feature.color,
+  };
+
   return (
     <button className="glass-card util-style-23" onClick={handleClick} aria-label={`Open ${feature.title}: ${feature.desc}`}>
-      <div className="feature-icon-wrap" style={{ '--feature-color': feature.color } as React.CSSProperties}>{feature.icon}</div>
+      <div className="feature-icon-wrap" style={style}>{feature.icon}</div>
       <h2 className="util-style-24">{feature.title}</h2>
       <p className="feature-desc">{feature.desc}</p>
     </button>

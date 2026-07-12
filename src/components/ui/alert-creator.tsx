@@ -33,7 +33,10 @@ export function AlertCreator(): React.JSX.Element {
   }, []);
 
   const handleSeverityChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>): void => {
-    setSeverity(e.target.value as AlertSeverity);
+    const value = e.target.value;
+    if (value === 'info' || value === 'warning' || value === 'critical') {
+      setSeverity(value);
+    }
   }, []);
 
   const handleSubmit = useCallback((e: React.FormEvent): void => {

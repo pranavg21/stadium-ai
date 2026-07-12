@@ -40,7 +40,11 @@ export function TransportPage(): React.JSX.Element {
         <ExportButton data={sorted} label="transport" csvHeaders={csvHeaders} csvRows={csvRows} />
       </div>
       <div className="util-style-45">
-        {sorted.map((option: TransportOption) => (
+        {sorted.map((option: TransportOption) => {
+          const style: React.CSSProperties & { '--dynamic-color'?: string } = {
+            '--dynamic-color': option.congestion > 70 ? 'var(--accent-amber)' : 'var(--accent-emerald)',
+          };
+          return (
           <div key={option.id} className="glass-card util-style-46">
             <div className="util-style-47">
               <div className="transport-icon">{MODE_ICONS[option.mode]}</div>
@@ -57,7 +61,7 @@ export function TransportPage(): React.JSX.Element {
               <div className="transport-congestion-wrap">
                 <div
                   className="congestion-dynamic-color"
-                  style={{ '--dynamic-color': option.congestion > 70 ? 'var(--accent-amber)' : 'var(--accent-emerald)' } as React.CSSProperties}
+                  style={style}
                 >
                   {option.congestion}%
                 </div>
@@ -68,7 +72,8 @@ export function TransportPage(): React.JSX.Element {
               </span>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
